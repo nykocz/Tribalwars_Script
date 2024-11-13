@@ -169,7 +169,7 @@ function getCurrentQueueListElement(tempElement, allAvailableBuildingsImgs) {
             span.style.width = '24px';
             span.style.position = 'relative';
             span.style.display = 'inline-block';
-            span.style.cursor = 'pointer';
+            //span.style.cursor = 'pointer';
             span.classList.add('tooltip');
 
             var progressBar = document.createElement('div');
@@ -360,10 +360,6 @@ function callRemoveBuildingQueue(url) {
             injectBuildQueueExtraList(settings_cookies.assets.find(asset => asset.name === 'extra_building_queue').column, true);
         }
     });
-}
-
-function logBuildQueue() {
-    console.log(JSON.parse(localStorage.getItem('extra_building_queue')));
 }
 
 function injectBuildQueueExtraList(columnToUse, update = false) {
