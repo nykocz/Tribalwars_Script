@@ -358,6 +358,22 @@ function callRemoveBuildingQueue(url) {
     });
 }
 
+function checkBuildLinks() {
+    setTimeout(function() {
+        const buildLinks = document.querySelectorAll('[id^="main_buildrow_"]');
+        console.log("Počet nalezených buildLinks:", buildLinks.length);
+
+        buildLinks.forEach(buildLink => {
+            console.log("BuildLink ID:", buildLink.id);
+            const links = buildLink.getElementsByTagName('a');
+            Array.from(links).forEach(link => {
+                console.log("Link href:", link.href);
+            });
+        });
+    }, 1000);
+}
+
+
 function injectBuildQueueExtraList(columnToUse, update = false) {
     if (settings_cookies.general['show__extra_building_queue']) {
         $.ajax({
