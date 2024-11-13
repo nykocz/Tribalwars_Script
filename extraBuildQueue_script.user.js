@@ -115,7 +115,7 @@ function getCurrentQueueListElement(tempElement, allAvailableBuildingsImgs) {
     } else if (cancelButtons.length == 1) {
         isBuildQueueFull = false;
         var nextSlotTime = extractTimeFromHTML(cancelButtons[0].parentElement.parentElement.children[3].textContent);
-        if (nextSlotTime) { // Přidána kontrola
+        if (nextSlotTime) {  // Přidána kontrola
             dateNextSlot = new Date().setDate(new Date().getDate() + nextSlotTime[0]);
             dateNextSlot = new Date(dateNextSlot).setHours(nextSlotTime[1], nextSlotTime[2]);
             localStorage.setItem('extra_building_queue_next_slot', dateNextSlot);
