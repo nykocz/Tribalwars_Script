@@ -62,6 +62,7 @@ function injectExtraBuildQueue(availableBuildingsImgs, availableBuildingLevels, 
         upgradeLink.textContent = 'Level ' + (parseInt(availableBuildingLevels[index]) + 1);
         upgradeLink.onclick = function () {
             addToBuildQueue(buildId);
+            console.log('click');
             window.location.reload();
         }
 
