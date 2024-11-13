@@ -13,7 +13,3 @@ function checkSideNotifications() {
         }
     }, 1000);
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    checkSideNotifications();
-});
