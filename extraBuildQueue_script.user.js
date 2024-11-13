@@ -67,7 +67,7 @@ function injectExtraBuildQueue(availableBuildingsImgs, availableBuildingLevels, 
             
         }
 
-        upgradeLink
+
 
         var upgradeCell = document.createElement('td');
         upgradeCell.appendChild(upgradeLink);
