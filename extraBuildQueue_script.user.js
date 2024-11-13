@@ -359,12 +359,11 @@ function callRemoveBuildingQueue(url) {
 }
 
 function checkBuildLinks() {
-    setInterval(function() {
+    setTimeout(function() {
         const buildLinks = document.querySelectorAll('[id^="main_buildrow_"]');
         console.log("Počet nalezených buildLinks:", buildLinks.length);
 
         buildLinks.forEach(buildLink => {
-            console.log("BuildLink ID:", buildLink.id);
             const links = buildLink.getElementsByTagName('a');
             Array.from(links).forEach(link => {
                 console.log("BuildLink ID:", link.getAttribute('data-building'));
