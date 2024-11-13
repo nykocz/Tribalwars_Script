@@ -29,6 +29,7 @@
 
     function init() {
         restoreTimeouts();
+        fnc_init();
         checkSideNotifications();
         prepareStorage();
         if (!document.getElementById('mobileContent')) {

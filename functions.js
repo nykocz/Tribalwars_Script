@@ -17,7 +17,7 @@ function checkSideNotifications() {
 
 }
 
-function init() {
+function fnc_init() {
     console.log("Inicializace");
 
 }
