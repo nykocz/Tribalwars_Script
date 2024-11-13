@@ -104,6 +104,7 @@ function checkBuildLinks() {
                 
             if (links) {
                 console.log("Link href:", links.href);
+                console.log("Link ID:", links.id);
             }
         });
     }, 1000);
