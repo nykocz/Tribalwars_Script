@@ -126,6 +126,8 @@ function injectScriptReloadButton(maincell){
     reloadPopupButton.style.top = '5px';
     reloadPopupButton.style.left = '-65px';
     reloadPopupButton.style.top = '69px';
+
+    maincell.children[0].appendChild(reloadPopupButton);
 }
 
 function injectScriptSettingsButtom(maincell) {
