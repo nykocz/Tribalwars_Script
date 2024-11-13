@@ -19,14 +19,13 @@ function getFinishedBuildingsNotif() {
 
 function reloadScript() {
     if (getFinishedBuildingsNotif()) {
-        location.reload();
+        window.location.reload();
     }
 }
 
 function checkSideNotifications() {
-    let isChecking = true;
-
     setInterval(function() {
+        console.log("Notifikace - refresh");
         reloadScript();
     }, 1000);
 }
