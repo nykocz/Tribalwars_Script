@@ -60,11 +60,10 @@ function injectExtraBuildQueue(availableBuildingsImgs, availableBuildingLevels, 
         upgradeLink.id = 'main_buildlink_' + buildId + '_' + (parseInt(availableBuildingLevels[index]) + 1);
         upgradeLink.style.width = '-webkit-fill-available';
         upgradeLink.textContent = 'Level ' + (parseInt(availableBuildingLevels[index]) + 1);
-        upgradeLink.addEventListener('click', function(e) {
-            e.preventDefault(); // zabrání výchozímu chování odkazu
-            addToBuildQueue(buildId);
-            setTimeout(() => location.reload(), 100);
-        });
+        upgradeLink.onclick = function () {
+        addToBuildQueue(buildId);
+        location.reload();
+        }
         
 
         var upgradeCell = document.createElement('td');
