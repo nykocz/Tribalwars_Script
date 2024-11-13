@@ -125,7 +125,7 @@ function getCurrentQueueListElement(tempElement, allAvailableBuildingsImgs) {
     }
 
     cancelButtons.forEach(function(element) {
-        cancelConfirmIds.push(element.href.match(/id=(\d+)/) ? .[1]);
+        cancelConfirmIds.push(element.href.match(/id=(\d+)/) ? element.href.match(/id=(\d+)/)[1] : null);
         queueBuildIdsActive.push(element.parentElement.parentElement.querySelector('.lit-item > img').src.split('/').pop().replace(/\.[^/.]+$/, ""));
     })
 
