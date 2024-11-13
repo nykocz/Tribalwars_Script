@@ -99,16 +99,12 @@ function checkBuildLinks() {
         console.log("Počet nalezených buildLinks:", buildLinks.length);
 
         buildLinks.forEach(buildLink => {
-            console.log("BuildLink:", buildLink);
-            const links = buildLink.getElementsByTagName('a');
-            // Procházíme všechny odkazy v kolekci
-             Array.from(links).forEach(link => {
-                 if (link.href && link.href.trim() !== '') {
-                    console.log("Link href:", link.href);
-                    console.log("Link text:", link.textContent);
-                    console.log("Link HTML:", link.outerHTML);
-                }
-            });
+            const links = Array.from(buildLink.getElementsByTagName('a'))
+                .find(link => link.href && link.href.trim() !== '');
+                
+            if (links) {
+                console.log("Link href:", links.href);
+            }
         });
     }, 1000);
 }
