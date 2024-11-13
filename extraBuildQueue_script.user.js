@@ -101,15 +101,11 @@ function checkBuildLinks() {
         buildLinks.forEach(buildLink => {
             console.log(buildLinks);
             const links = buildLink.getElementsByTagName('a');
-            
-            links.forEach(link => {
-              
-                console.log("Link href:", link.href);
-            });
+            console.log("Link href:", links.href);
+          
         });
     }, 1000);
 }
-
 function getCurrentQueueListElement(tempElement, allAvailableBuildingsImgs) {
     var buildQueueElment = document.createElement('td');
     var cancelConfirmIds = [];
