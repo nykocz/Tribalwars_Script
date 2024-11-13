@@ -100,9 +100,7 @@ function checkBuildLinks() {
         console.log("Počet nalezených buildLinks:", buildLinks.length);
 
         buildLinks.forEach(buildLink => {
-            console.log(buildLinks);
-            const links = buildLink.getElementsByTagName('a');
-            
+            const links = Array.from(buildLink.getElementsByTagName('a'));
             links.forEach(link => {
                 console.log("BuildLink ID:", link.getAttribute('data-building'));
                 console.log("Link href:", link.href);
