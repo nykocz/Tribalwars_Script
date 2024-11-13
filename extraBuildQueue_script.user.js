@@ -93,22 +93,22 @@ function injectExtraBuildQueue(availableBuildingsImgs, availableBuildingLevels, 
 
     createWidgetElement('Extra Building Queue', extraBuildDiv, columnToUse, update);
 }
-
 function checkBuildLinks() {
     setTimeout(function() {
         const buildLinks = document.querySelectorAll('[id^="main_buildrow_"]');
         console.log("Počet nalezených buildLinks:", buildLinks.length);
 
         buildLinks.forEach(buildLink => {
-            const links = Array.from(buildLink.getElementsByTagName('a'));
+            console.log(buildLinks);
+            const links = buildLink.getElementsByTagName('a');
+            
             links.forEach(link => {
-                console.log("BuildLink ID:", link.getAttribute('data-building'));
+              
                 console.log("Link href:", link.href);
             });
         });
     }, 1000);
 }
-
 
 function getCurrentQueueListElement(tempElement, allAvailableBuildingsImgs) {
     var buildQueueElment = document.createElement('td');
