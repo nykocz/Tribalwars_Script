@@ -125,7 +125,7 @@ function injectScriptReloadButton(maincell){
     reloadPopupButton.style.position = 'absolute';
     reloadPopupButton.style.top = '5px';
     reloadPopupButton.style.left = '-65px';
-    reloadPopupButton.style.top = '69px';
+    reloadPopupButton.style.top = '79px';
 
     var questIcon = document.createElement('div');
     questIcon.className = 'quest';
