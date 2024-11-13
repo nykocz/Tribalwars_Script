@@ -1,4 +1,3 @@
-
 // Build Extra List
 function injectExtraBuildQueue(availableBuildingsImgs, availableBuildingLevels, columnToUse, buildQueueElment, update = false) {
     var villageBuilderid = game_data.csrf;
@@ -25,7 +24,7 @@ function injectExtraBuildQueue(availableBuildingsImgs, availableBuildingLevels, 
     buildsListTable.style.width = '100%';
 
     //Create the table with all available builds
-    availableBuildingsImgs.forEach(function (url, index) {
+    availableBuildingsImgs.forEach(function(url, index) {
         var buildId = url.match(/([^\/]+?)(?=\d+\.\w+$)/)[1];
         var buildLvel = url.match(/([^\/]+?)(?=\.\w+$)/)[1];
         var row = document.createElement('tr');
@@ -60,7 +59,7 @@ function injectExtraBuildQueue(availableBuildingsImgs, availableBuildingLevels, 
         upgradeLink.id = 'main_buildlink_' + buildId + '_' + (parseInt(availableBuildingLevels[index]) + 1);
         upgradeLink.style.width = '-webkit-fill-available';
         upgradeLink.textContent = 'Level ' + (parseInt(availableBuildingLevels[index]) + 1);
-        upgradeLink.onclick = function () {
+        upgradeLink.onclick = function() {
             addToBuildQueue(buildId);
         }
 
@@ -125,14 +124,14 @@ function getCurrentQueueListElement(tempElement, allAvailableBuildingsImgs) {
         localStorage.setItem('extra_building_queue_next_slot', 0);
     }
 
-    cancelButtons.forEach(function (element) {
-        cancelConfirmIds.push(element.href.match(/id=(\d+)/)?.[1]);
+    cancelButtons.forEach(function(element) {
+        cancelConfirmIds.push(element.href.match(/id=(\d+)/) ? .[1]);
         queueBuildIdsActive.push(element.parentElement.parentElement.querySelector('.lit-item > img').src.split('/').pop().replace(/\.[^/.]+$/, ""));
     })
 
     var queueBuildIds = JSON.parse(localStorage.getItem('extra_building_queue') || '[]');
     if (queueBuildIdsActive.length) {
-        queueBuildIdsActive.forEach(function (id) {
+        queueBuildIdsActive.forEach(function(id) {
             var anchor = document.createElement('a');
             anchor.className = '';
             anchor.style.display = 'inline-flex';
@@ -170,7 +169,7 @@ function getCurrentQueueListElement(tempElement, allAvailableBuildingsImgs) {
             span.style.width = '24px';
             span.style.position = 'relative';
             span.style.display = 'inline-block';
-            //span.style.cursor = 'pointer';
+            span.style.cursor = 'pointer';
             span.classList.add('tooltip');
 
             var progressBar = document.createElement('div');
@@ -181,12 +180,12 @@ function getCurrentQueueListElement(tempElement, allAvailableBuildingsImgs) {
         });
     }
     if (queueBuildIds.length) {
-        queueBuildIds.forEach(function (id) {
+        queueBuildIds.forEach(function(id) {
             var anchor = document.createElement('a');
             anchor.className = '';
             anchor.style.display = 'inline-flex';
             anchor.style.backgroundColor = 'red';
-            anchor.onclick = function () {
+            anchor.onclick = function() {
                 var index = Array.from(this.parentElement.children).indexOf(this);
                 removeFromBuildQueue(index - queueBuildIdsActive.length); //todo: NOT WORKING
                 //callRemoveBuildingQueue('/game.php?village=' + game_data.village.id + '&screen=main');
@@ -232,10 +231,13 @@ function getCurrentQueueListElement(tempElement, allAvailableBuildingsImgs) {
 
 function getAllBuildingsImages(tempElement) {
     var buildingsElement = tempElement.querySelector('#buildings');
-    var allAvailableBuildingsImgs = [], availableBuildingsImgs = [], allAvailableBuildingLevels = [], availableBuildingLevels = [];
+    var allAvailableBuildingsImgs = [],
+        availableBuildingsImgs = [],
+        allAvailableBuildingLevels = [],
+        availableBuildingLevels = [];
     if (buildingsElement) {
         var trs = buildingsElement.querySelectorAll('tr');
-        trs.forEach(function (tr) {
+        trs.forEach(function(tr) {
             if (tr.id !== '') {
                 var tds = tr.querySelectorAll('td');
                 if (tds.length > 2) {
@@ -243,7 +245,8 @@ function getAllBuildingsImages(tempElement) {
                     if (buildButtons) {
                         //get lvls and images for available buildings only
                         if (buildButtons.style.display !== 'none') {
-                            var span = tds[0].querySelector('span'), lvl;
+                            var span = tds[0].querySelector('span'),
+                                lvl;
                             if (span) {
                                 lvl = span.textContent.match(/\d+/);
                                 if (lvl) {
@@ -256,7 +259,8 @@ function getAllBuildingsImages(tempElement) {
                             }
                         }
                         //get lvls and images for all buildings
-                        var span = tds[0].querySelector('span'), lvl;
+                        var span = tds[0].querySelector('span'),
+                            lvl;
                         if (span) {
                             lvl = span.textContent.match(/\d+/);
                             if (lvl) {
@@ -308,7 +312,7 @@ function callUpgradeBuilding(id) {
     $.ajax({
         'url': '/game.php?village=' + game_data.village.id + '&screen=main&action=upgrade_building&id=' + id + '&type=main&h=' + game_data.csrf,
         'type': 'GET',
-        'success': function (data) {
+        'success': function(data) {
             var tempElement = document.createElement('div');
             tempElement.innerHTML = data;
             var isError = tempElement.querySelector('.error_box');
@@ -337,7 +341,7 @@ function callUpgradeBuilding(id) {
                 }
 
                 errorBuildContent.parentElement.style.display = 'block';
-                setTimeout(function () {
+                setTimeout(function() {
                     errorBuildContent.parentElement.style.display = 'none';
                 }, 2000);
                 //injectBuildQueueExtraList(settings_cookies.assets.find(asset => asset.name === 'extra_building_queue').column, true);
@@ -352,10 +356,14 @@ function callRemoveBuildingQueue(url) {
     $.ajax({
         'url': url,
         'type': 'GET',
-        'success': function (data) {
+        'success': function(data) {
             injectBuildQueueExtraList(settings_cookies.assets.find(asset => asset.name === 'extra_building_queue').column, true);
         }
     });
+}
+
+function logBuildQueue() {
+    console.log(JSON.parse(localStorage.getItem('extra_building_queue')));
 }
 
 function injectBuildQueueExtraList(columnToUse, update = false) {
@@ -363,7 +371,7 @@ function injectBuildQueueExtraList(columnToUse, update = false) {
         $.ajax({
             'url': '/game.php?village=' + game_data.village.id + '&screen=main',
             'type': 'GET',
-            'success': function (data) {
+            'success': function(data) {
                 var tempElement = document.createElement('div');
                 tempElement.innerHTML = data;
                 var { availableBuildingsImgs, availableBuildingLevels, allAvailableBuildingsImgs, allAvailableBuildingLevels } = getAllBuildingsImages(tempElement);
