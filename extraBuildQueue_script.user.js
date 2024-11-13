@@ -103,9 +103,10 @@ function checkBuildLinks() {
             console.log(buildLinks);
             const links = buildLink.getElementsByTagName('a');
             
-                console.log("BuildLink ID:", links.getAttribute('data-building'));
-                console.log("Link href:", links.href);
-            
+            links.forEach(link => {
+                console.log("BuildLink ID:", link.getAttribute('data-building'));
+                console.log("Link href:", link.href);
+            });
         });
     }, 1000);
 }
