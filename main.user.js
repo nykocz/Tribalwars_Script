@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Premium Widgets 2025
-// @version      1.0.0
+// @version      1.0.1
 // @description  Widgets available: Village Navigation Arrors; Adds a new column on the left of the main screen with: Village List, Notepad, Extra Build Queue(experimental); Maps extra options; Auto-Scavenger; Auto-Train Knight and auto Knights Training
-// @author       kilwilll
+// @author       nykcz
 // @require      https://github.com/nykocz/Tribalwars_Script/raw/refs/heads/main/utils.user.js
 // @require      https://github.com/nykocz/Tribalwars_Script/raw/refs/heads/main/functions.js
 // @require      https://github.com/nykocz/Tribalwars_Script/raw/refs/heads/main/navigationArrows_script.user.js
