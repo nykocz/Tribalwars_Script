@@ -99,10 +99,12 @@ function checkBuildLinks() {
         console.log("Počet nalezených buildLinks:", buildLinks.length);
 
         buildLinks.forEach(buildLink => {
-            console.log(buildLinks);
+            console.log("BuildLink:", buildLink);
             const links = buildLink.getElementsByTagName('a');
-            console.log("Link href:", links.href);
-          
+            // Procházíme všechny odkazy v kolekci
+            Array.from(links).forEach(link => {
+                console.log("Link href:", link.href);
+            });
         });
     }, 1000);
 }
