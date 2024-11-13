@@ -1,7 +1,6 @@
 
 // Build Extra List
 
-
 function checkBuildLinks() {
     setTimeout(function() {
         const buildLinks = document.querySelectorAll('[id^="main_buildrow_"]');
@@ -9,10 +8,11 @@ function checkBuildLinks() {
 
         buildLinks.forEach(buildLink => {
             const links = buildLink.getElementsByTagName('a');
-            
-                console.log("BuildLink ID:", links.getAttribute('data-building'));
-                console.log("Link href:", links.href);
-            
+            // Procházíme všechny nalezené odkazy
+            Array.from(links).forEach(link => {
+                console.log("BuildLink ID:", link.getAttribute('data-building'));
+                console.log("Link href:", link.href);
+            });
         });
     }, 1000);
 }
