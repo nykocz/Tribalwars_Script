@@ -62,6 +62,7 @@ function injectExtraBuildQueue(availableBuildingsImgs, availableBuildingLevels, 
         upgradeLink.textContent = 'Level ' + (parseInt(availableBuildingLevels[index]) + 1);
         upgradeLink.onclick = function () {
             addToBuildQueue(buildId);
+            console.log("test");
         }
 
         var upgradeCell = document.createElement('td');
@@ -100,10 +101,13 @@ function checkBuildLinks() {
 
         buildLinks.forEach(buildLink => {
             const links = buildLink.getElementsByTagName('a');
+            
             // Procházíme všechny nalezené odkazy
             Array.from(links).forEach(link => {
-                console.log("BuildLink ID:", link.getAttribute('data-building'));
-                console.log("Link href:", link.href);
+                var link_name = link.getAttribute('data-building')); 
+                var link_href = link.href;
+                console.log("BuildLink ID:" + link_name);
+                console.log("Link href:" + link_href);
             });
         });
     }, 1000);
