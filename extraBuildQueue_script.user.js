@@ -344,6 +344,7 @@ function callUpgradeBuilding(id) {
                 //injectBuildQueueExtraList(settings_cookies.assets.find(asset => asset.name === 'extra_building_queue').column, true);
             } else {
                 injectBuildQueueExtraList(settings_cookies.assets.find(asset => asset.name === 'extra_building_queue').column, true);
+                window.location.reload();
             }
         }
     });
