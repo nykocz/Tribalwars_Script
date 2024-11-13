@@ -127,6 +127,12 @@ function injectScriptReloadButton(maincell){
     reloadPopupButton.style.left = '-65px';
     reloadPopupButton.style.top = '69px';
 
+    var questIcon = document.createElement('div');
+    questIcon.className = 'quest';
+    questIcon.style.backgroundImage = 'url(https://dspt.innogamescdn.com/asset/b56f49d7/graphic/icons/settings.png)';
+
+    reloadPopupButton.appendChild(questIcon);
+ 
     maincell.children[0].appendChild(reloadPopupButton);
 }
 
