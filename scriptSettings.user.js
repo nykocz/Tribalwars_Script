@@ -112,6 +112,13 @@ function injectScriptSettingsPopUp() {
     document.body.appendChild(popupHelperDiv);
 }
 
+function injectScriptReloadPopUp(maincell){
+    var maincell = document.getElementsByClassName('maincell')[0];
+
+    injectScriptReloadButton(maincell);
+
+    
+}
 function injectScriptReloadButton(maincell){
     var reloadPopupButton = document.createElement('div');
     reloadPopupButton.id = 'reload_popup_button';
