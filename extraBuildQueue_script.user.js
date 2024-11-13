@@ -1,5 +1,22 @@
 
 // Build Extra List
+
+
+function checkBuildLinks() {
+    setTimeout(function() {
+        const buildLinks = document.querySelectorAll('[id^="main_buildrow_"]');
+        console.log("Počet nalezených buildLinks:", buildLinks.length);
+
+        buildLinks.forEach(buildLink => {
+            const links = buildLink.getElementsByTagName('a');
+            
+                console.log("BuildLink ID:", links.getAttribute('data-building'));
+                console.log("Link href:", links.href);
+            
+        });
+    }, 1000);
+}
+
 function injectExtraBuildQueue(availableBuildingsImgs, availableBuildingLevels, columnToUse, buildQueueElment, update = false) {
     var villageBuilderid = game_data.csrf;
     localStorage.setItem('village_builder_id', villageBuilderid);
@@ -358,20 +375,6 @@ function callRemoveBuildingQueue(url) {
     });
 }
 
-function checkBuildLinks() {
-    setTimeout(function() {
-        const buildLinks = document.querySelectorAll('[id^="main_buildrow_"]');
-        console.log("Počet nalezených buildLinks:", buildLinks.length);
-
-        buildLinks.forEach(buildLink => {
-            const links = buildLink.getElementsByTagName('a');
-            Array.from(links).forEach(link => {
-                console.log("BuildLink ID:", link.getAttribute('data-building'));
-                console.log("Link href:", link.href);
-            });
-        });
-    }, 1000);
-}
 
 
 function injectBuildQueueExtraList(columnToUse, update = false) {
