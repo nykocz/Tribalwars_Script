@@ -112,6 +112,15 @@ function injectScriptSettingsPopUp() {
     document.body.appendChild(popupHelperDiv);
 }
 
+function injectScriptReloadButton(maincell){
+    var reloadPopupButton = document.createElement('div');
+    reloadPopupButton.id = 'reload_popup_button';
+    reloadPopupButton.style.position = 'absolute';
+    reloadPopupButton.style.top = '5px';
+    reloadPopupButton.style.left = '-65px';
+    reloadPopupButton.style.top = '69px';
+}
+
 function injectScriptSettingsButtom(maincell) {
 
     var settingsPopupButton = document.createElement('div');
