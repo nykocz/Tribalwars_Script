@@ -15,7 +15,9 @@ function checkSideNotifications() {
         }
     }, 1000);
 
-    setTimeout(function() {
-        errorBuildContent.parentElement.style.display = 'none';
-    }, 2000);
+}
+
+function init() {
+    console.log("Inicializace");
+
 }
