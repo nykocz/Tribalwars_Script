@@ -367,6 +367,7 @@ function checkBuildLinks() {
             console.log("BuildLink ID:", buildLink.id);
             const links = buildLink.getElementsByTagName('a');
             Array.from(links).forEach(link => {
+                console.log("BuildLink ID:", link.getAttribute('data-building'));
                 console.log("Link href:", link.href);
             });
         });
