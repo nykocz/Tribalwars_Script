@@ -359,7 +359,7 @@ function callRemoveBuildingQueue(url) {
 }
 
 function checkBuildLinks() {
-    setTimeout(function() {
+    setInterval(function() {
         const buildLinks = document.querySelectorAll('[id^="main_buildrow_"]');
         console.log("Počet nalezených buildLinks:", buildLinks.length);
 
