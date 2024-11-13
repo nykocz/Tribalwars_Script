@@ -106,6 +106,7 @@ function checkBuildLinks() {
         });
     }, 1000);
 }
+
 function getCurrentQueueListElement(tempElement, allAvailableBuildingsImgs) {
     var buildQueueElment = document.createElement('td');
     var cancelConfirmIds = [];
