@@ -102,8 +102,12 @@ function checkBuildLinks() {
             console.log("BuildLink:", buildLink);
             const links = buildLink.getElementsByTagName('a');
             // Procházíme všechny odkazy v kolekci
-            Array.from(links).forEach(link => {
-                console.log("Link href:", link.href);
+             Array.from(links).forEach(link => {
+                 if (link.href && link.href.trim() !== '') {
+                    console.log("Link href:", link.href);
+                    console.log("Link text:", link.textContent);
+                    console.log("Link HTML:", link.outerHTML);
+                }
             });
         });
     }, 1000);
