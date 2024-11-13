@@ -120,7 +120,7 @@ function injectScriptReloadPopUp(maincell){
     
 }
 function injectScriptReloadButton(maincell){
-  var reloadPopupButton = document.createElement('div');
+    var reloadPopupButton = document.createElement('div');
     reloadPopupButton.id = 'reload_popup_button';
     reloadPopupButton.style.position = 'absolute';
     reloadPopupButton.style.top = '5px';
