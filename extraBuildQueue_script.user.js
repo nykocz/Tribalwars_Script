@@ -306,6 +306,7 @@ function removeFromBuildQueue(build_index) {
 }
 
 function callUpgradeBuilding(id) {
+    console.log('callUpgradeBuilding', id);
     $.ajax({
         'url': '/game.php?village=' + game_data.village.id + '&screen=main&action=upgrade_building&id=' + id + '&type=main&h=' + game_data.csrf,
         'type': 'GET',
